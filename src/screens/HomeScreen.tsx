@@ -1,9 +1,9 @@
-import React from 'react'
-import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native'
+import React from 'react';
+import { ActivityIndicator, FlatList, Image, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { styles } from '../theme/appTheme';
+import { PokemonCard } from '../components/PokemonCard';
 import { usePokemonPaginated } from '../hooks/usePokemonPaginated';
-import { FadeInImage } from '../components/FadeInImage';
+import { styles } from '../theme/appTheme';
 
 export const HomeScreen = () => {
 
@@ -16,41 +16,39 @@ export const HomeScreen = () => {
                 source={require('../assets/pokebola.png')}
                 style={styles.pokebolaBG}
             />
+            <View style={{ alignItems: 'center' }}>
+                <FlatList
+                    data={simplePokemonList}
+                    renderItem={({ item }) => <PokemonCard pokemon={item} />}
+                    keyExtractor={(item) => item.id}
+                    showsVerticalScrollIndicator={false}
+                    numColumns={2}
 
-            {/* <Text style={{
-                ...styles.title,
-                ...styles.globalMargin,
-                top: top + 20,
-            }}>
-                Pokedex
-            </Text> */}
+                    // Header
+                    ListHeaderComponent={(
+                        <Text style={{
+                            ...styles.title,
+                            ...styles.globalMargin,
+                            marginTop: top + 20,
+                            paddingBottom: 10,
+                        }}>
+                            Pokedex
+                        </Text>
+                    )}
 
-            <FlatList
-                data={simplePokemonList}
-                renderItem={({ item }) => (
-                    <FadeInImage
-                        uri={item.picture}
-                        style={{
-                            width: 100,
-                            height: 100,
-                        }}
-                    />
-                )}
-                keyExtractor={(item) => item.id}
-                showsVerticalScrollIndicator={false}
-                // Infinite Scroll
-                onEndReached={loadPokemons}
-                onEndReachedThreshold={0.4}
+                    // Infinite Scroll
+                    onEndReached={loadPokemons}
+                    onEndReachedThreshold={0.4}
 
-                ListFooterComponent={(
-                    <ActivityIndicator
-                        style={{ height: 100 }}
-                        size={20}
-                        color='green'
-                    />
-                )}
-            />
-
+                    ListFooterComponent={(
+                        <ActivityIndicator
+                            style={{ height: 100 }}
+                            size={20}
+                            color='green'
+                        />
+                    )}
+                />
+            </View>
 
         </>
     )
