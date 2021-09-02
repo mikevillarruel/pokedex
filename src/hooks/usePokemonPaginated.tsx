@@ -37,10 +37,6 @@ export const usePokemonPaginated = () => {
 
     }
 
-    const getId = (url: string) => {
-
-    }
-
     useEffect(() => {
         loadPokemons();
     }, [])
@@ -48,5 +44,6 @@ export const usePokemonPaginated = () => {
     return {
         isLoading,
         simplePokemonList,
+        loadPokemons,
     }
 }
