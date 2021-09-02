@@ -7,9 +7,9 @@ const App = () => {
   return (
     <NavigationContainer>
       <StatusBar
-        backgroundColor='transparent'
+        backgroundColor='rgba(0,0,0,0.3)'
         translucent={true}
-        barStyle='dark-content'
+        barStyle='light-content'
       />
       <Navigator />
     </NavigationContainer>
