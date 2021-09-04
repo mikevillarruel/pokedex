@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 7,
+            height: 2,
         },
-        shadowOpacity: 0.43,
-        shadowRadius: 9.51,
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
 
-        elevation: 15,
+        elevation: 5,
     },
     name: {
         color: 'white',

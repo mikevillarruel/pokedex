@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StatusBar } from 'react-native';
-import { Navigator } from './src/navigator/Navigator';
+import { Tabs } from './src/navigator/Tabs';
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
         translucent={true}
         barStyle='light-content'
       />
-      <Navigator />
+      <Tabs />
     </NavigationContainer>
   )
 }
